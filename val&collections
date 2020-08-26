@@ -9,9 +9,42 @@
   例子：
     val a:Int = 123
     a = 456;   //错误，不能再赋值
-    
---数组
 
+--for 遍历
+	不支持break
+	https://www.runoob.com/scala/scala-break-statement.html
+	for (i <- 0 to 9 ) println(i)
+	for (i <- 0 to 9 by 2 ) println(i)
+	for (i <- 0 to 9;if i > 1) println(i)
+
+
+
+--元组
+	--tuple2支持两个元素，最大是tuple22，支持22个元素
+	val t:tuple2[String,Int]=("abc",123)
+	 	--元组访问: t._n(n是从1开始)
+		  t._1  //abc
+		  t._2 //123
+	--元组解析
+	var (a,b) = t
+
+--数组
+  定义方式1
+	  var list:Array[String] = Array[String](3)
+	  list(1) = "abc"
+	  println(list(1))
+  
+  定义方式2 
+	  var list = Array("abc","bcd") 
+	  println(list(1))
+  
+  遍历
+  	for(i <- list){println(i)}
+  
+  生成新的数组
+  	var newt = for(i <- 0 to 9 if i % 2 = 0 ) yield i
+  
+   
 --list
 
 
