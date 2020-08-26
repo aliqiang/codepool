@@ -8,10 +8,41 @@ class p(a:Int,b:Int){
 object p{
    
 }
+   // 私有构造方法
+   class Marker private(val color:String) {
 
+     println("创建" + this)
+
+     override def toString(): String = "颜色标记："+ color
+
+   }
+
+   // 伴生对象，与类名字相同，可以访问类的私有属性和方法
+   object Marker{
+
+       private val markers: Map[String, Marker] = Map(
+         "red" -> new Marker("red"),
+         "blue" -> new Marker("blue"),
+         "green" -> new Marker("green")
+       )
+
+       def apply(color:String) = {
+         if(markers.contains(color)) markers(color) else null
+       }
+
+
+       def getMarker(color:String) = { 
+         if(markers.contains(color)) markers(color) else null
+       }
+       def main(args: Array[String]) { 
+           println(Marker("red"))  
+           // 单例函数调用，省略了.(点)符号  
+           println(Marker getMarker "blue")  
+       }
+   }
 
 --案例类
-和普通类没有多大区别，但是有几个关键特性：1.生成实例时不需要使用new，2.可以直接做对象比较，比较的是对象的成员变量，而不是引用
+和普通类没有多大区别，但是有几个关键特性：1.生成实例时不需要使用new(因为自动生成伴生对象，自动构造apply函数)，2.可以直接做对象比较，比较的是对象的成员变量，而不是引用
 case class p(a:Int,b:Int) {
 }
 
