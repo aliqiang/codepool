@@ -46,6 +46,10 @@
   
    
 --list
+	
+	var l = List(1,2,3,4) //等价于 1::2::3::4::Nil
+	for(i <- l) println(i)
+	
 
 
 --map
