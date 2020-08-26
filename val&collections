@@ -46,14 +46,25 @@
   
    
 --list
-	
+	后台是通过链表实现，而且是不可以改变的，如果需要新增或者删除数据，会生成一个新的list
 	var l = List(1,2,3,4) //等价于 1::2::3::4::Nil
 	for(i <- l) println(i)
+	不适合索引访问，比如l(999)，但是vector适合
 	
-
-
+	如果需要在原表上增加删减使用arraybuffer，使用+= 添加
+	var ar:ArrayBuffer[Int] = ArrayBuffer();
+	ar += 1
+	ar += 2
+	
 --map
-
+     https://www.runoob.com/scala/scala-maps.html
+    var m = Map("a" -> 1,"b" -> 2)
+    m += "c" -> 3
+    println(m("c"))
+    m.foreach((k) => println(k._1+":"+k._2))
+     
+     
+    
 
 --set
 
